@@ -58,14 +58,6 @@ export const projects: Project[] = [
     url: 'https://erpbm.nxosbr.com/login',
   },
   {
-    id: 'dashboards-austral',
-    title: 'Dashboards de KPIs',
-    company: 'Austral Engenharia',
-    description: 'Automação de coleta e análise de dados com dashboards em tempo real.',
-    fullDescription: 'Automação de coleta e análise de dados operacionais com dashboards em tempo real para acompanhamento de indicadores de performance. Visualizações interativas e atualização automática de métricas.',
-    stack: ['Power BI', 'Python', 'Pandas'],
-  },
-  {
     id: 'erp-conterp',
     title: 'ERP Interno',
     company: 'Conterp Oil and Gas',
