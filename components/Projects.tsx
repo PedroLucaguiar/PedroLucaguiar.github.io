@@ -57,14 +57,6 @@ export const projects: Project[] = [
     images: ['/medicao/1.png', '/medicao/2.png', '/medicao/3.png'],
     url: 'https://erpbm.nxosbr.com/login',
   },
-  {
-    id: 'erp-conterp',
-    title: 'ERP Interno',
-    company: 'Conterp Oil and Gas',
-    description: 'Desenvolvimento do ERP interno com módulos de integração entre setores.',
-    fullDescription: 'Participação no desenvolvimento do ERP interno com módulos de integração entre setores operacionais e administrativos da empresa. Foco em automação de processos e redução de retrabalho.',
-    stack: ['Python', 'JavaScript', 'Node.js'],
-  },
 ]
 
 function ProjectCard({ project, index, onClick }: { 
