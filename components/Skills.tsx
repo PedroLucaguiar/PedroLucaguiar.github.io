@@ -2,39 +2,11 @@
 
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { useLanguage } from '@/lib/i18n'
 
-const skillCategories = [
-  {
-    name: 'Automação & Backend',
-    skills: ['Python', 'Django', 'Django REST', 'Node.js', 'Scripts ETL', 'Bots'],
-  },
-  {
-    name: 'Frontend',
-    skills: ['Next.js', 'React', 'React Native', 'HTML5', 'CSS3', 'Tailwind CSS'],
-  },
-  {
-    name: 'Dados & BI',
-    skills: ['Power BI', 'Pandas', 'Dashboards', 'Relatórios Gerenciais'],
-  },
-  {
-    name: 'Banco de Dados',
-    skills: ['PostgreSQL', 'MySQL'],
-  },
-  {
-    name: 'ERP & Sistemas',
-    skills: ['Desenvolvimento do zero', 'Integração de setores', 'Fluxos de aprovação'],
-  },
-  {
-    name: 'DevOps & Tools',
-    skills: ['Git', 'GitHub', 'Docker', 'APIs REST', 'Scrum/Agile'],
-  },
-  {
-    name: 'Office & Produtividade',
-    skills: ['Excel Avançado', 'Power BI', 'Automação de Planilhas'],
-  },
-]
+type SkillCategoryData = ReturnType<typeof useLanguage>['t']['skills']['categories'][number]
 
-function SkillCategory({ category, index }: { category: typeof skillCategories[0]; index: number }) {
+function SkillCategory({ category, index }: { category: SkillCategoryData; index: number }) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-50px' })
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null)
@@ -50,7 +22,7 @@ function SkillCategory({ category, index }: { category: typeof skillCategories[0
       <h3 className="font-serif text-lg md:text-xl font-bold text-foreground mb-4">
         {category.name}
       </h3>
-      
+
       <div className="flex flex-wrap gap-2">
         {category.skills.map((skill, skillIndex) => (
           <motion.span
@@ -69,7 +41,7 @@ function SkillCategory({ category, index }: { category: typeof skillCategories[0
               animate={{ x: hoveredSkill === skill ? 0 : '-100%' }}
               transition={{ duration: 0.2 }}
             />
-            <span 
+            <span
               className={`relative z-10 transition-colors ${
                 hoveredSkill === skill ? 'text-foreground' : 'text-secondary'
               }`}
@@ -86,6 +58,7 @@ function SkillCategory({ category, index }: { category: typeof skillCategories[0
 export default function Skills() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const { t } = useLanguage()
 
   return (
     <section id="competencias" className="py-24 md:py-32 px-6 lg:px-12" ref={ref}>
@@ -97,15 +70,15 @@ export default function Skills() {
           transition={{ duration: 0.6 }}
         >
           <span className="font-mono text-xs tracking-widest text-accent uppercase">
-            03 — Competências
+            {t.skills.eyebrow}
           </span>
           <h2 className="mt-4 font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
-            Habilidades
+            {t.skills.title}
           </h2>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillCategories.map((category, index) => (
+          {t.skills.categories.map((category, index) => (
             <SkillCategory key={category.name} category={category} index={index} />
           ))}
         </div>

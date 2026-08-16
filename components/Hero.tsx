@@ -2,8 +2,11 @@
 
 import { motion } from 'framer-motion'
 import AnimatedText from './AnimatedText'
+import { useLanguage } from '@/lib/i18n'
 
 export default function Hero() {
+  const { t } = useLanguage()
+
   return (
     <section className="relative min-h-screen flex items-center px-6 lg:px-12 pt-24 overflow-hidden">
       {/* Background Elements */}
@@ -12,34 +15,14 @@ export default function Hero() {
         <div 
           className="absolute inset-0 opacity-[0.02]"
           style={{
-            backgroundImage: `linear-gradient(#1A1A1A 1px, transparent 1px), linear-gradient(90deg, #1A1A1A 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(var(--foreground) 1px, transparent 1px), linear-gradient(90deg, var(--foreground) 1px, transparent 1px)`,
             backgroundSize: '60px 60px'
           }}
         />
         
         {/* Floating geometric element */}
-        <motion.div
-          className="absolute top-1/4 right-[15%] w-64 h-64 border border-accent/20 rounded-full"
-          animate={{
-            rotate: 360,
-            scale: [1, 1.05, 1],
-          }}
-          transition={{
-            rotate: { duration: 30, repeat: Infinity, ease: 'linear' },
-            scale: { duration: 8, repeat: Infinity, ease: 'easeInOut' },
-          }}
-        />
-        <motion.div
-          className="absolute top-1/3 right-[20%] w-32 h-32 border border-secondary/10"
-          animate={{
-            rotate: -360,
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-        />
+        <div className="absolute top-1/4 right-[15%] w-64 h-64 border border-accent/20 rounded-full" />
+        <div className="absolute top-1/3 right-[20%] w-32 h-32 border border-secondary/10" />
       </div>
 
       <div className="mx-auto max-w-7xl w-full">
@@ -68,7 +51,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.3, duration: 0.6 }}
           >
-            Software Developer · Salvador, BA · 2025
+            {t.hero.meta}
           </motion.p>
 
           {/* Bio */}
@@ -78,7 +61,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.5, duration: 0.6 }}
           >
-            Transformo processos complexos em sistemas que funcionam.
+            {t.hero.value}
           </motion.p>
 
           {/* CTAs */}
@@ -93,7 +76,7 @@ export default function Hero() {
               className="group relative inline-flex items-center gap-2 px-8 py-4 bg-foreground text-primary-foreground font-medium text-sm tracking-wide uppercase overflow-hidden transition-transform hover:scale-[1.02]"
               data-cursor-hover
             >
-              <span className="relative z-10">Ver Projetos</span>
+              <span className="relative z-10">{t.hero.primaryCta}</span>
               <motion.span
                 className="absolute inset-0 bg-accent"
                 initial={{ x: '-100%' }}
@@ -106,7 +89,7 @@ export default function Hero() {
               className="inline-flex items-center gap-2 px-8 py-4 border border-foreground text-foreground font-medium text-sm tracking-wide uppercase hover:bg-foreground hover:text-primary-foreground transition-colors"
               data-cursor-hover
             >
-              Falar comigo
+              {t.hero.secondaryCta}
             </a>
           </motion.div>
         </div>
@@ -120,12 +103,9 @@ export default function Hero() {
         transition={{ delay: 2, duration: 0.6 }}
       >
         <span className="font-mono text-xs text-secondary tracking-widest uppercase">
-          Scroll
+          {t.hero.scroll}
         </span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-        >
+        <div>
           <svg
             width="20"
             height="20"
@@ -141,7 +121,7 @@ export default function Hero() {
               strokeLinejoin="round"
             />
           </svg>
-        </motion.div>
+        </div>
       </motion.div>
     </section>
   )

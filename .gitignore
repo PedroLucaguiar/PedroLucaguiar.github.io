@@ -14,4 +14,13 @@ node_modules
 .next/
 out/
 .npm-cache/
+_next/
+_not-found/
+*.tsbuildinfo
+index.html
+index.txt
+404.html
+_not-found.html
+_not-found.txt
+__next.*.txt
 .DS_Store

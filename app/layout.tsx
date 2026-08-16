@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, Playfair_Display, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { ThemeProvider } from '@/components/theme-provider'
 import './globals.css'
 
 const inter = Inter({ 
@@ -22,23 +23,23 @@ const jetbrains = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Pedro Lucas Aguiar | Portifólio',
-  description: 'Desenvolvedor de software em Salvador, BA. Transformo processos complexos em sistemas que funcionam. Especialista em Python, Django, Next.js, React e automação.',
-  keywords: ['desenvolvedor', 'software', 'python', 'django', 'next.js', 'react', 'salvador', 'bahia', 'brasil'],
+  title: 'Pedro Lucas Aguiar | Programador Pleno ERP, Front-end & Mobile',
+  description: 'Programador Pleno no Brasil. Portfólio com ERP web, React, Next.js, TypeScript, React Native, Expo, automação, PostgreSQL e Power BI.',
+  keywords: ['programador pleno', 'frontend engineer', 'erp developer', 'react native', 'expo', 'react', 'next.js', 'typescript', 'python', 'node.js', 'brasil'],
   authors: [{ name: 'Pedro Lucas Aguiar' }],
   creator: 'Pedro Lucas Aguiar',
   openGraph: {
     type: 'website',
     locale: 'pt_BR',
     url: 'https://pedrolucasaguiar.dev',
-    title: 'Pedro Lucas Aguiar | Portifólio',
-    description: 'Desenvolvedor de software em Salvador, BA. Transformo processos complexos em sistemas que funcionam.',
+    title: 'Pedro Lucas Aguiar | Programador Pleno ERP, Front-end & Mobile',
+    description: 'ERP web, apps mobile, integrações e automações para operações corporativas complexas.',
     siteName: 'Pedro Lucas Aguiar',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Pedro Lucas Aguiar | Portifólio',
-    description: 'Desenvolvedor de software em Salvador, BA. Transformo processos complexos em sistemas que funcionam.',
+    title: 'Pedro Lucas Aguiar | Programador Pleno ERP, Front-end & Mobile',
+    description: 'ERP web, apps mobile, integrações e automações para operações corporativas complexas.',
   },
   robots: {
     index: true,
@@ -69,9 +70,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR" className={`${inter.variable} ${playfair.variable} ${jetbrains.variable} bg-background`}>
+    <html lang="pt-BR" suppressHydrationWarning className={`${inter.variable} ${playfair.variable} ${jetbrains.variable} bg-background`}>
       <body className="font-sans antialiased">
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+          {children}
+        </ThemeProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

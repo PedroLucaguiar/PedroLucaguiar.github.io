@@ -6,12 +6,11 @@ import Projects from '@/components/Projects'
 import Gallery from '@/components/Gallery'
 import Contact from '@/components/Contact'
 import Navbar from '@/components/Navbar'
-import ScrollProgress from '@/components/ScrollProgress'
+import { LanguageProvider } from '@/lib/i18n'
 
 export default function Home() {
   return (
-    <>
-      <ScrollProgress />
+    <LanguageProvider>
       <Navbar />
       <main>
         <Hero />
@@ -22,6 +21,6 @@ export default function Home() {
         <Gallery />
         <Contact />
       </main>
-    </>
+    </LanguageProvider>
   )
 }

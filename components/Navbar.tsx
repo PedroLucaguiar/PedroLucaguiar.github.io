@@ -1,27 +1,30 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
-
-const navItems = [
-  { label: 'Sobre', href: '#sobre' },
-  { label: 'Trajetória', href: '#trajetoria' },
-  { label: 'Competências', href: '#competencias' },
-  { label: 'Projetos', href: '#projetos' },
-  { label: 'Contato', href: '#contato' },
-]
+import { useTheme } from 'next-themes'
+import AnimatedThemeToggler from '@/components/Global/components/animated-theme-toggler'
+import { useLanguage } from '@/lib/i18n'
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState('')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
+  const { theme: selectedTheme, resolvedTheme, setTheme } = useTheme()
+  const { language, setLanguage, t } = useLanguage()
+  const navItems = t.nav
+  const activeTheme = (selectedTheme === 'system' ? resolvedTheme : selectedTheme) === 'dark' ? 'dark' : 'light'
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
 
-      // Find active section
       const sections = navItems.map((item) => item.href.replace('#', ''))
       for (const section of sections.reverse()) {
         const element = document.getElementById(section)
@@ -37,7 +40,40 @@ export default function Navbar() {
 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [navItems])
+
+  const languageToggle = (
+    <div className="flex items-center rounded-full border border-border bg-card/80 p-1">
+      {(['pt', 'en'] as const).map((item) => (
+        <button
+          key={item}
+          type="button"
+          onClick={() => setLanguage(item)}
+          className={`px-3 py-1 font-mono text-xs uppercase rounded-full transition-colors ${
+            language === item ? 'bg-foreground text-primary-foreground' : 'text-secondary hover:text-foreground'
+          }`}
+          aria-pressed={language === item}
+          data-cursor-hover
+        >
+          {item}
+        </button>
+      ))}
+    </div>
+  )
+
+  const renderThemeToggle = () => (
+    isMounted ? (
+      <AnimatedThemeToggler
+        className="nx-theme-toggle"
+        duration={520}
+        theme={activeTheme}
+        variant="circle"
+        onThemeChange={setTheme}
+      />
+    ) : (
+      <span className="h-[34px] w-[34px] rounded-full border border-border bg-card/80" />
+    )
+  )
 
   return (
     <>
@@ -66,7 +102,6 @@ export default function Navbar() {
             </motion.span>
           </Link>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <Link
@@ -85,9 +120,12 @@ export default function Navbar() {
                 )}
               </Link>
             ))}
+            <div className="flex items-center gap-3">
+              {renderThemeToggle()}
+              {languageToggle}
+            </div>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             className="md:hidden relative w-8 h-8 flex flex-col items-center justify-center gap-1.5"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -111,11 +149,10 @@ export default function Navbar() {
           </button>
         </motion.div>
 
-        {/* Backdrop */}
         <AnimatePresence>
           {isScrolled && (
             <motion.div
-              className="absolute inset-0 -z-10 bg-background/80 backdrop-blur-md border-b border-border/50"
+              className="absolute inset-0 -z-10 bg-background/95 border-b border-border/50"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -124,7 +161,6 @@ export default function Navbar() {
         </AnimatePresence>
       </motion.nav>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -135,6 +171,10 @@ export default function Navbar() {
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
           >
             <div className="flex flex-col gap-6">
+              <div className="flex items-center gap-3">
+                {renderThemeToggle()}
+                {languageToggle}
+              </div>
               {navItems.map((item, index) => (
                 <motion.div
                   key={item.href}

@@ -2,10 +2,12 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { useLanguage } from '@/lib/i18n'
 
 export default function Contact() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const { t } = useLanguage()
 
   return (
     <section id="contato" className="py-24 md:py-32 px-6 lg:px-12 bg-muted/30" ref={ref}>
@@ -17,10 +19,10 @@ export default function Contact() {
             transition={{ duration: 0.6 }}
           >
             <span className="font-mono text-xs tracking-widest text-accent uppercase">
-              05 — Contato
+              {t.contact.eyebrow}
             </span>
             <h2 className="mt-4 font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-foreground text-balance">
-              Vamos construir algo juntos.
+              {t.contact.title}
             </h2>
           </motion.div>
 
@@ -91,7 +93,7 @@ export default function Contact() {
                 <path d="M13 6.5C13 11 8 14.5 8 14.5C8 14.5 3 11 3 6.5C3 5.17392 3.52678 3.90215 4.46447 2.96447C5.40215 2.02678 6.67392 1.5 8 1.5C9.32608 1.5 10.5979 2.02678 11.5355 2.96447C12.4732 3.90215 13 5.17392 13 6.5Z" stroke="currentColor" strokeWidth="1.25"/>
               </svg>
               <span className="font-mono text-xs tracking-wider uppercase">
-                Salvador, BA — Brasil
+                {t.contact.location}
               </span>
             </div>
 
@@ -99,13 +101,9 @@ export default function Contact() {
 
             {/* Availability badge */}
             <div className="flex items-center gap-2">
-              <motion.span
-                className="w-2 h-2 rounded-full bg-green-500"
-                animate={{ scale: [1, 1.2, 1], opacity: [1, 0.7, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              />
+              <span className="w-2 h-2 rounded-full bg-green-500" />
               <span className="font-mono text-xs tracking-wider text-green-600 uppercase">
-                Disponível para projetos
+                {t.contact.availability}
               </span>
             </div>
           </motion.div>
@@ -119,7 +117,7 @@ export default function Contact() {
           transition={{ duration: 0.6, delay: 0.5 }}
         >
           <p className="font-mono text-xs text-secondary">
-            © 2025 Pedro Lucas Aguiar. Todos os direitos reservados.
+            © 2025 Pedro Lucas Aguiar. {t.contact.rights}
           </p>
         </motion.div>
       </div>

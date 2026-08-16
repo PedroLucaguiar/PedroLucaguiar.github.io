@@ -27,6 +27,26 @@
   --radius: 0.625rem;
 }
 
+.dark {
+  --background: #0D1110;
+  --foreground: #F5F1E8;
+  --card: #151A18;
+  --card-foreground: #F5F1E8;
+  --popover: #151A18;
+  --popover-foreground: #F5F1E8;
+  --primary: #F5F1E8;
+  --primary-foreground: #0D1110;
+  --secondary: #A8A29A;
+  --secondary-foreground: #0D1110;
+  --muted: #222821;
+  --muted-foreground: #B5ADA3;
+  --accent: #5EE0B7;
+  --accent-foreground: #07100D;
+  --border: #2B332D;
+  --input: #2B332D;
+  --ring: #5EE0B7;
+}
+
 @theme inline {
   --font-sans: var(--font-inter), system-ui, sans-serif;
   --font-serif: var(--font-playfair), Georgia, serif;
