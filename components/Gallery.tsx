@@ -134,7 +134,7 @@ function GalleryCard({
               onClick={() => onOpen('mockup')}
               className="rounded-full bg-foreground px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-background transition-transform hover:scale-105"
             >
-              Ver prints
+              View prints
             </button>
             {project.url && (
               <button
@@ -142,7 +142,7 @@ function GalleryCard({
                 onClick={() => onOpen('live')}
                 className="rounded-full border border-foreground/10 bg-background/90 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-foreground"
               >
-                Testar site
+                Test site
               </button>
             )}
           </div>
@@ -203,7 +203,7 @@ export default function Gallery() {
               </h2>
             </div>
             <span className="font-mono text-xs uppercase tracking-[0.2em] text-secondary">
-              Prints, mockups e preview responsivo
+              Prints, mockups and responsive preview
             </span>
           </motion.div>
 
@@ -266,7 +266,7 @@ export default function Gallery() {
                         modalMode === mode ? 'bg-foreground text-background' : 'bg-muted text-secondary hover:text-foreground'
                       }`}
                     >
-                      {mode === 'mockup' ? 'Modo Mockup' : 'Preview ao Vivo'}
+                      {mode === 'mockup' ? 'Mockup mode' : 'Live preview'}
                     </button>
                   ))}
                 </div>

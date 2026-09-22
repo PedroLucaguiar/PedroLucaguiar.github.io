@@ -128,7 +128,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                               transition={{ type: 'spring', stiffness: 420, damping: 34 }}
                             />
                           )}
-                          <span className="relative z-10">{item === 'live' ? 'Preview ao vivo' : 'Galeria'}</span>
+                          <span className="relative z-10">{item === 'live' ? 'Live preview' : 'Gallery'}</span>
                         </button>
                       ))}
                     </div>
@@ -218,7 +218,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                             />
                           ) : (
                             <motion.div className="flex h-full items-center justify-center">
-                              <span className="font-mono text-xs text-secondary">Galeria em breve</span>
+                              <span className="font-mono text-xs text-secondary">Gallery coming soon</span>
                             </motion.div>
                           )}
                         </AnimatePresence>
@@ -229,7 +229,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                               type="button"
                               onClick={() => goToImage(-1)}
                               className="absolute left-4 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-background text-foreground transition-transform hover:scale-105"
-                              aria-label="Imagem anterior"
+                              aria-label="Previous image"
                             >
                               ←
                             </button>
@@ -237,7 +237,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                               type="button"
                               onClick={() => goToImage(1)}
                               className="absolute right-4 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-background text-foreground transition-transform hover:scale-105"
-                              aria-label="Próxima imagem"
+                              aria-label="Next image"
                             >
                               →
                             </button>

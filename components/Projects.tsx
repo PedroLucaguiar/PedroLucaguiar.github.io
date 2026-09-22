@@ -206,10 +206,10 @@ function ProjectCard({
                 transition={{ duration: 0.18 }}
               >
                 <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent">
-                  Preview leve
+                  Light preview
                 </span>
                 <p className="mt-2 text-sm font-medium text-foreground">
-                  Clique em “Testar aqui” para abrir o iframe responsivo.
+                  Click “Test here” to open the responsive iframe.
                 </p>
               </motion.div>
             )}
@@ -220,7 +220,7 @@ function ProjectCard({
                   <button
                     key={image}
                     type="button"
-                    aria-label={`Ver imagem ${imageIndex + 1}`}
+                    aria-label={`View image ${imageIndex + 1}`}
                     onClick={(event) => {
                       event.stopPropagation()
                       setPreviewMode('mockup')
@@ -238,7 +238,7 @@ function ProjectCard({
               <div
                 className="absolute bottom-5 right-5 z-30"
               >
-                <MagneticButton onClick={onClick}>Testar aqui</MagneticButton>
+                <MagneticButton onClick={onClick}>Test here</MagneticButton>
               </div>
             )}
           </div>
@@ -272,7 +272,7 @@ function ProjectCard({
 
           <div className="flex flex-wrap items-center gap-3">
             <MagneticButton onClick={onClick}>{cta}</MagneticButton>
-            {project.url && <MagneticButton href={project.url} variant="light">Demo externa</MagneticButton>}
+            {project.url && <MagneticButton href={project.url} variant="light">External demo</MagneticButton>}
           </div>
         </div>
       </motion.div>
@@ -322,13 +322,13 @@ export default function Projects() {
                   {t.projects.title}
                 </h2>
                 <p className="mt-4 max-w-2xl text-sm leading-relaxed text-foreground/65 md:text-base">
-                  Explore os cases, alterne entre mockup e preview leve, filtre por tecnologia e teste cada produto sem sair da página.
+                  Explore the cases, switch between mockup and light preview, filter by technology and test each product without leaving the page.
                 </p>
               </div>
 
               <div className="hidden md:flex items-center gap-2 text-secondary">
                 <span className="font-mono text-xs tracking-wider uppercase">
-                  Filtre, veja e teste
+                  Filter, view and test
                 </span>
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                   <path d="M10 3L11.8 8.2L17 10L11.8 11.8L10 17L8.2 11.8L3 10L8.2 8.2L10 3Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
