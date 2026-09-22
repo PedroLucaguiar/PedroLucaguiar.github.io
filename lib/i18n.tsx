@@ -161,7 +161,7 @@ export const content = {
             'Criou uma ponte auditável entre RH operacional, ponto, execução e faturamento, com mais controle sobre horas validadas e itens medíveis.',
           stack: ['Next.js', 'React', 'TypeScript', 'Django REST', 'PostgreSQL', 'APIs REST'],
           images: ['/projects/rh/peoplesync-policies.webp', '/projects/rh/peoplesync-calendar.webp', '/projects/rh/3.webp'],
-          url: 'https://dev.nxoserp.com/login/',
+          url: 'https://hub-dev.nxosbr.com/login/',
         },
         {
           id: 'fieldops-nxos',
@@ -177,7 +177,7 @@ export const content = {
             'Criou um ciclo completo entre escritório e campo: serviço solicitado, planejado, executado, revisado, assinado e pronto para medição.',
           stack: ['Next.js', 'React', 'TypeScript', 'Django REST', 'Firebase', 'UX/UI'],
           images: ['/projects/fieldops/report-team.webp', '/projects/fieldops/2.webp', '/projects/fieldops/schedule-rule.webp'],
-          url: 'https://dev.nxoserp.com/login/',
+          url: 'https://hub-dev.nxosbr.com/login/',
         },
         {
           id: 'medicao-nxos',
@@ -193,7 +193,7 @@ export const content = {
             'Deu rastreabilidade ao caminho entre execução em campo, validação, cobrança e fechamento financeiro, reduzindo erro operacional.',
           stack: ['Next.js', 'React', 'TypeScript', 'ExcelJS', 'Power BI', 'REST APIs'],
           images: ['/projects/medicao/calendar-safe.webp', '/projects/medicao/bm-config-safe.webp', '/projects/medicao/3.webp'],
-          url: 'https://dev.nxoserp.com/login/',
+          url: 'https://hub-dev.nxosbr.com/login/',
         },
         {
           id: 'app-colab-nxos',
@@ -255,7 +255,7 @@ export const content = {
             'Centralizou a entrada do ecossistema NXOS e deixou o acesso aos módulos mais claro, controlado e escalável.',
           stack: ['Next.js', 'React', 'TypeScript', 'Django REST', 'Auth', 'UX/UI'],
           images: ['/projects/hub/1.webp', '/projects/hub/2.webp', '/projects/hub/3.webp'],
-          url: 'https://dev.nxoserp.com/login/',
+          url: 'https://hub-dev.nxosbr.com/login/',
         },
       ],
     },
@@ -428,7 +428,7 @@ export const content = {
             'Created an auditable bridge between operational HR, punches, execution and billing, with more control over validated hours and measurable items.',
           stack: ['Next.js', 'React', 'TypeScript', 'Django REST', 'PostgreSQL', 'REST APIs'],
           images: ['/projects/rh/peoplesync-policies.webp', '/projects/rh/peoplesync-calendar.webp', '/projects/rh/3.webp'],
-          url: 'https://dev.nxoserp.com/login/',
+          url: 'https://hub-dev.nxosbr.com/login/',
         },
         {
           id: 'fieldops-nxos',
@@ -444,7 +444,7 @@ export const content = {
             'Created a complete loop between office and field: requested, planned, executed, reviewed, signed and ready for measurement.',
           stack: ['Next.js', 'React', 'TypeScript', 'Django REST', 'Firebase', 'UX/UI'],
           images: ['/projects/fieldops/report-team.webp', '/projects/fieldops/2.webp', '/projects/fieldops/schedule-rule.webp'],
-          url: 'https://dev.nxoserp.com/login/',
+          url: 'https://hub-dev.nxosbr.com/login/',
         },
         {
           id: 'medicao-nxos',
@@ -460,7 +460,7 @@ export const content = {
             'Gave traceability to the path between field execution, validation, billing and financial closing, reducing operational error.',
           stack: ['Next.js', 'React', 'TypeScript', 'ExcelJS', 'Power BI', 'REST APIs'],
           images: ['/projects/medicao/calendar-safe.webp', '/projects/medicao/bm-config-safe.webp', '/projects/medicao/3.webp'],
-          url: 'https://dev.nxoserp.com/login/',
+          url: 'https://hub-dev.nxosbr.com/login/',
         },
         {
           id: 'app-colab-nxos',
@@ -522,7 +522,7 @@ export const content = {
             'Centralized entry into the NXOS ecosystem and made module access clearer, controlled and scalable.',
           stack: ['Next.js', 'React', 'TypeScript', 'Django REST', 'Auth', 'UX/UI'],
           images: ['/projects/hub/1.webp', '/projects/hub/2.webp', '/projects/hub/3.webp'],
-          url: 'https://dev.nxoserp.com/login/',
+          url: 'https://hub-dev.nxosbr.com/login/',
         },
       ],
     },
